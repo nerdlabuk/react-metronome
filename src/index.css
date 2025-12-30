@@ -110,6 +110,10 @@
     --default-mono-font-family: var(--font-mono);
     --default-mono-font-feature-settings: var(--font-mono--font-feature-settings);
     --default-mono-font-variation-settings: var(--font-mono--font-variation-settings);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-border: var(--border);
+    --color-ring: var(--ring);
   }
 }
 
@@ -370,19 +374,19 @@
   }
 
   * {
-    border-color: var(--border);
-    outline-color: var(--ring);
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
   }
 
   @supports (color: color-mix(in lab, red, red)) {
     * {
-      outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+      outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
     }
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@source "../**/*.{ts,tsx}";
-@source "../index.html";
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -126,11 +123,13 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
